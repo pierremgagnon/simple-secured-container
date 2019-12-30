@@ -59,7 +59,15 @@ As we did not make any change to the Nginx configuration, the server will listen
     - ./etc/ssl/certs/localhost.crt
     - ./etc/ssl/private/localhost.key
     - ./etc/nginx/.htpasswd
-     
+ 
+ To fulfill the solution requirements, the configuration of the image goes through several steps:
+ 
+ **1 Obtain ssl Certificate and key**
+ sdsd
+ **2 Obtain .htaccess for Authentication**
+  sdsd
+ **3 Setup config files**
+   sdsd
 
 ## docker-compose.yml structure
  
