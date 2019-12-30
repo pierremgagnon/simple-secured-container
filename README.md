@@ -55,10 +55,9 @@ To deploy the solution, go to the root folder of the solution and type :
  
 <img src="https://github.com/pierremgagnon/simple-secured-container/blob/master/dc.png" width="205">
  
-```services:
-```
+The *service:* section defines the containers to include in the solution and their configuration 
 
-```  proxy:
+``` proxy:
     container_name: runningproxy
     hostname: proxy
     image: proxy
@@ -68,18 +67,22 @@ To deploy the solution, go to the root folder of the solution and type :
       - backend
       - frontend
 ```
+This container will run proxy image, use proxy hostname, expose only ssl port 443 and be connected to backend and frontend networks
 
-```  web:
+``` web:
     container_name: runningweb
     hostname: web
     image: web
     networks:
       - backend
 ```
-      
+This container will run web image, use web hostname (used in previous reverse proxy config), will only be connected to the backend networks and will not expose any port to the outside. 
+Indeed we secure network protocols by having internal proxy->web communication occuring internally and on a dedicated docker network.
+
+Theses networks defined in this section:      
 ```networks:
   frontend:
   backend:
 ```
 
-sdsd
+
