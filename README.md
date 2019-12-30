@@ -40,15 +40,18 @@ As we did not make any change to the Nginx configuration, the server will listen
  The docker file describing the image contains :
   - the reference to the official Nginx:latest image
   - a bunch of file integration mostly for Nginx configuration:
-  - ./etc/nginx/sites-enabled/proxy.conf
-  - ./etc/nginx/conf.d/default.conf 
-  - ./etc/ssl/certs/localhost.crt
-  - ./etc/ssl/private/localhost.key
-  - ./etc/nginx/.htpasswd
-
-
+    - ./etc/nginx/sites-enabled/proxy.conf
+    - ./etc/nginx/conf.d/default.conf 
+    - ./etc/ssl/certs/localhost.crt
+    - ./etc/ssl/private/localhost.key
+    - ./etc/nginx/.htpasswd
 
  # 3. Deploy the solution using Docker-compose
  
 To deploy the solution, go to the root folder of the solution and type :
 > *docker compose up -d*
+
+**docker-comose.yml structure**
+[![N|Solid](https://github.com/pierremgagnon/simple-secured-container/blob/master/DC.png)](https://github.com/pierremgagnon/simple-secured-container/blob/master/DC.png)
+
+
