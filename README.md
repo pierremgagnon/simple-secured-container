@@ -22,27 +22,33 @@ Here is the diagram of the solution:
  This simple docker image is based on Nginx a light Web Server Easily conterizable.
  The source image is locate in the "web" folder.
  Simply build the image by by going to the root folder of the solution and type :
- docker build -t web web
+ > *docker build -t web web*
  
- The docker file describing the image contains 
-  -the reference to the official Nginx:latest image
-  -a integration of the welcome page (confidential content) a the default home page
+ The docker file describing the image contains :
+  - the reference to the official Nginx:latest image
+  - a integration of the welcome page (confidential content) a the default home page
 
 As we did not make any change to the Nginx configuration, the server will listen on port 80 and use the default home page (./usr/share/nginx/html) 
 
  # 2. Build the reverse proxy image
  
- This simple docker image is based on Nginx a light Web Server Easily conterizable.
- The source image is locate in the "web" folder.
- Simply build the image by by going to the root folder of the solution and type :
- docker build -t web web
+ Again, we will create an Nginx based image, as Nginx has also proxy/reverse proxy capabilities.
+ The source image is locate in the "proxy" folder.
+ Simply build the image by going to the root folder of the solution and type :
+ > *docker build -t proxy proxy*
  
- The docker file describing the image contains 
-  -the reference to the official Nginx:latest image
-  -a integration of the welcome page (confidential content) a the default home page
+ The docker file describing the image contains :
+  - the reference to the official Nginx:latest image
+  - a bunch of file integration mostly for Nginx configuration:
+  - ./etc/nginx/sites-enabled/proxy.conf
+  - ./etc/nginx/conf.d/default.conf 
+  - ./etc/ssl/certs/localhost.crt
+  - ./etc/ssl/private/localhost.key
+  - ./etc/nginx/.htpasswd
 
-As we did not make any change to the Nginx configuration, the server will listen on port 80 and use the default home page (./usr/share/nginx/html) 
+
 
  # 3. Deploy the solution using Docker-compose
  
- This simple docker image is based on Nginx a light Web Server Easily conterizable.
+To deploy the solution, go to the root folder of the solution and type :
+> *docker compose up -d*
