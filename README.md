@@ -35,12 +35,12 @@ Here is the diagram of the solution:
  
 To deploy the solution, go to the root folder of the solution and type :
 > *docker-compose up -d*
- 
+
+The solution is now running on the local docker machine and be accessible at https://localhost and the secret content at https://localhost/uj47G/. 
  
 # How it works
 
 ## Web image
- 
  
 The docker file describing the image contains :
   - the reference to the official Nginx:latest image
@@ -63,11 +63,18 @@ As we did not make any change to the Nginx configuration, the server will listen
  To fulfill the solution requirements, the configuration of the image goes through several steps:
  
  **1 Obtain ssl Certificate and key**
+ 
  sdsd
+ > sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout localhost.key -out localhost.crt -config localhost.conf
+ 
+ 
  **2 Obtain .htaccess for Authentication**
-  sdsd
+ 
+ sdsd
+ 
  **3 Setup config files**
-   sdsd
+ 
+ sdsd
 
 ## docker-compose.yml structure
  
