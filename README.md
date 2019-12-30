@@ -34,7 +34,7 @@ Here is the diagram of the solution:
  ## 3. Deploy the solution using Docker-compose
  
 To deploy the solution, go to the root folder of the solution and type :
-> *docker compose up -d*
+> *docker-compose up -d*
  
  
 # How it works
