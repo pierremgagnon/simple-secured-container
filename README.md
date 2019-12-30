@@ -22,4 +22,27 @@ Here is the diagram of the solution:
  This simple docker image is based on Nginx a light Web Server Easily conterizable.
  The source image is locate in the "web" folder.
  Simply build the image by by going to the root folder of the solution and type :
- docker build proxy
+ docker build -t web web
+ 
+ The docker file describing the image contains 
+  -the reference to the official Nginx:latest image
+  -a integration of the welcome page (confidential content) a the default home page
+
+As we did not make any change to the Nginx configuration, the server will listen on port 80 and use the default home page (./usr/share/nginx/html) 
+
+ # 2. Build the reverse proxy image
+ 
+ This simple docker image is based on Nginx a light Web Server Easily conterizable.
+ The source image is locate in the "web" folder.
+ Simply build the image by by going to the root folder of the solution and type :
+ docker build -t web web
+ 
+ The docker file describing the image contains 
+  -the reference to the official Nginx:latest image
+  -a integration of the welcome page (confidential content) a the default home page
+
+As we did not make any change to the Nginx configuration, the server will listen on port 80 and use the default home page (./usr/share/nginx/html) 
+
+ # 3. Deploy the solution using Docker-compose
+ 
+ This simple docker image is based on Nginx a light Web Server Easily conterizable.
