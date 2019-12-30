@@ -55,23 +55,31 @@ To deploy the solution, go to the root folder of the solution and type :
  
 <img src="https://github.com/pierremgagnon/simple-secured-container/blob/master/dc.png" width="205">
  
-'<addr>' services:
->   proxy:
->     container_name: runningproxy
->     hostname: proxy
->     image: proxy
->     ports:
->       - 443:443
->     networks:
->       - backend
->       - frontend
->   web:
->     container_name: runningweb
->     hostname: web
->     image: web
->     networks:
->       - backend
+```services:
+```
+
+```  proxy:
+    container_name: runningproxy
+    hostname: proxy
+    image: proxy
+    ports:
+      - 443:443
+    networks:
+      - backend
+      - frontend
+```
+
+```  web:
+    container_name: runningweb
+    hostname: web
+    image: web
+    networks:
+      - backend
+```
       
-> networks:
->   frontend:
->   backend: 
+```networks:
+  frontend:
+  backend:
+```
+
+sdsd
