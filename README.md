@@ -19,15 +19,15 @@ Here is the diagram of the solution:
  
  ## 1. Build the confidential content image
  
- This simple docker image is based on Nginx a light Web Server Easily conterizable.
- The source image is locate in the "web" folder.
- Simply build the image by by going to the root folder of the solution and type :
+ This simple docker image is based on Nginx, a light Web Server Easily conterizable.
+ The source image is located in the "web" folder.
+ Simply build the image by going to the root folder of the solution and type :
  > *docker build -t web web*
 
  ## 2. Build the reverse proxy image
  
- Again, we will create an Nginx based image, as Nginx has also proxy/reverse proxy capabilities.
- The source image is locate in the "proxy" folder.
+ Again, we will create an Nginx based image, as Nginx has proxy/reverse proxy capabilities as well.
+ The source image is located in the "proxy" folder.
  Simply build the image by going to the root folder of the solution and type :
  > *docker build -t proxy proxy*
 
@@ -46,7 +46,7 @@ The docker file describing the image contains :
   - the reference to the official Nginx:latest image
   - a integration of the welcome page (confidential content) a the default home page
 
-As we did not make any change to the Nginx configuration, the server will listen on port 80 and use the default home page (./usr/share/nginx/html) 
+As we did not make any change to the Nginx configuration, the server will listen on port 80 and use the default home page (./usr/share/nginx/html) that we replace with our confidential content.
  
      
 ## Proxy image
@@ -78,18 +78,18 @@ Basically all you have to do is use openssl :
  
  **2. Obtain .htaccess for Basic Authentication**
  
- Following this guide, we see .htpasswd from Apache Utils is used to generate a file containing encrypted user:password pairs:
+ Following this guide, we see that .htpasswd from Apache Utils is used to generate a file containing encrypted user:password pairs:
  https://docs.nginx.com/nginx/admin-guide/security-controls/configuring-http-basic-authentication/
 
 > sudo htpasswd -c /etc/apache2/.htpasswd user1
 
-It then prompt you for a password then generate the .htpasswd file we use in the image.
+It then prompt you for a password and then generate the .htpasswd file we use in the image.
  
  **3. Setup config files**
  
-All the configuration we need will be done un the default.conf file. Please note we can also add other config files as Nginx support multiple sets of configs.
+All the configuration we need will be done un the default.conf file. Please note we can also add other config files as Nginx support multiple sets of these.
 
-This section is used for the default content when not redirectinc to the confidential container
+This section is used for the default content when not redirecting to the confidential container
 Please not we could use a seperate container to handle this, but to keep this demo simple
 We just host a distinct web instance on the same server on port 8888
 ```server {
@@ -163,7 +163,7 @@ This container will run proxy image, use proxy hostname, expose only ssl port 44
 This container will run web image, use web hostname (used in previous reverse proxy config), will only be connected to the backend networks and will not expose any port to the outside. 
 Indeed we secure network protocols by having internal proxy->web communication occuring internally and on a dedicated docker network.
 
-Theses networks defined in this section:      
+Theses networks are defined in this section:      
 ```networks:
   frontend:
   backend:
