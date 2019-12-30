@@ -13,7 +13,7 @@ This solution we demontrate here is composed of three components :
       
 Here is the diagram of the solution:
 
-<img src="https://github.com/pierremgagnon/simple-secured-container/blob/master/Diagram.png" width="900">
+<img src="https://github.com/pierremgagnon/simple-secured-container/blob/master/Diagram.png" width="600">
 
 # Deployment instructions
  
