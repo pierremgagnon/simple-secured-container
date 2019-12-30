@@ -1,0 +1,9 @@
+FROM nginx
+RUN mkdir ./etc/nginx/sites-enabled/
+RUN mkdir ./etc/ssl/
+RUN mkdir ./etc/ssl/certs/
+COPY ./sites-enabled/ ./etc/nginx/sites-enabled/
+COPY ./default.conf ./etc/nginx/conf.d/
+COPY ./certs/localhost.crt ./etc/ssl/certs/
+COPY ./certs/localhost.key ./etc/ssl/private/
+COPY .htpasswd /etc/nginx/.htpasswd
