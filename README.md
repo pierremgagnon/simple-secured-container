@@ -17,21 +17,21 @@ Here is the diagram of the solution:
 
 # Deployment instructions
  
- # 1. Build the confidential content image
+ ## 1. Build the confidential content image
  
  This simple docker image is based on Nginx a light Web Server Easily conterizable.
  The source image is locate in the "web" folder.
  Simply build the image by by going to the root folder of the solution and type :
  > *docker build -t web web*
 
- # 2. Build the reverse proxy image
+ ## 2. Build the reverse proxy image
  
  Again, we will create an Nginx based image, as Nginx has also proxy/reverse proxy capabilities.
  The source image is locate in the "proxy" folder.
  Simply build the image by going to the root folder of the solution and type :
  > *docker build -t proxy proxy*
 
- # 3. Deploy the solution using Docker-compose
+ ## 3. Deploy the solution using Docker-compose
  
 To deploy the solution, go to the root folder of the solution and type :
 > *docker compose up -d*
@@ -39,7 +39,7 @@ To deploy the solution, go to the root folder of the solution and type :
  
 # How it works
 
-**Web image**
+## Web image
  
  
 The docker file describing the image contains :
@@ -49,7 +49,7 @@ The docker file describing the image contains :
 As we did not make any change to the Nginx configuration, the server will listen on port 80 and use the default home page (./usr/share/nginx/html) 
  
      
-**Proxy image**
+## Proxy image
  
   The docker file describing the image contains :
   - the reference to the official Nginx:latest image
@@ -61,7 +61,7 @@ As we did not make any change to the Nginx configuration, the server will listen
     - ./etc/nginx/.htpasswd
      
 
-**docker-compose.yml structure**
+## docker-compose.yml structure
  
 <img src="https://github.com/pierremgagnon/simple-secured-container/blob/master/dc.png" width="205">
  
