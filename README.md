@@ -52,6 +52,6 @@ To deploy the solution, go to the root folder of the solution and type :
 > *docker compose up -d*
 
 **docker-comose.yml structure**
-[![N|Solid](https://github.com/pierremgagnon/simple-secured-container/blob/master/DC.png)](https://github.com/pierremgagnon/simple-secured-container/blob/master/DC.png)
+[![N|Solid](https://github.com/pierremgagnon/simple-secured-container/blob/master/dc.png)](https://github.com/pierremgagnon/simple-secured-container/blob/master/dc.png)
 
 
