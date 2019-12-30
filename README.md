@@ -51,7 +51,27 @@ As we did not make any change to the Nginx configuration, the server will listen
 To deploy the solution, go to the root folder of the solution and type :
 > *docker compose up -d*
 
-**docker-comose.yml structure**
+**docker-compose.yml structure**
  
 <img src="https://github.com/pierremgagnon/simple-secured-container/blob/master/dc.png" width="205">
-
+ 
+'<addr>' services:
+>   proxy:
+>     container_name: runningproxy
+>     hostname: proxy
+>     image: proxy
+>     ports:
+>       - 443:443
+>     networks:
+>       - backend
+>       - frontend
+>   web:
+>     container_name: runningweb
+>     hostname: web
+>     image: web
+>     networks:
+>       - backend
+      
+> networks:
+>   frontend:
+>   backend: 
