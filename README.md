@@ -64,13 +64,22 @@ As we did not make any change to the Nginx configuration, the server will listen
  
  **1 Obtain ssl Certificate and key**
  
- sdsd
+ In this example we will use self signed certificate, but for production pupose you must use a certificate comming from a trusted certification auhtority.
+ 
+This blog post is a excellent source I used to create the cert/key pair : https://www.humankode.com/ssl/create-a-selfsigned-certificate-for-nginx-in-5-minutes 
+Basically all you have to do is use openssl :
  > sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout localhost.key -out localhost.crt -config localhost.conf
+ We the obtain these 2 files we choosed to move in these folders :
+     - ./etc/ssl/certs/localhost.crt
+    - ./etc/ssl/private/localhost.key
  
  
- **2 Obtain .htaccess for Authentication**
+ **2 Obtain .htaccess for Basic Authentication**
  
- sdsd
+ Following this guide, we see .htpasswd from Apache Utils is used to generate a file containing encrypted user:password pairs:
+ https://docs.nginx.com/nginx/admin-guide/security-controls/configuring-http-basic-authentication/
+> sudo htpasswd -c /etc/apache2/.htpasswd user1
+It then prompt you for a password then generate the .htpasswd file we use in the image.
  
  **3 Setup config files**
  
